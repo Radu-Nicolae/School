@@ -6,18 +6,18 @@
 using namespace std;
 
 int main(){
-    int n;
+    int sizeOfArray;
     bool areEven;
     bool areOdd;
 
-    cin >> n;
-    int arr[n];
+    cin >> sizeOfArray;
+    int arr[sizeOfArray];
 
-    for (int i; i < n; i++){
+    for (int i; i < sizeOfArray; i++){
         cin >> arr[i];
     }
 
-    for (int i; i < sizeof(arr); i++){
+    for (int i; i < sizeOfArray; i++){
         if (arr[i] % 2 == 0){
             areEven = true;
         }

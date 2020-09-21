@@ -10,7 +10,7 @@ int main(){
 
     int arr[n];
 
-    for (int i; i < n; i++){
+    for (int i = 0; i < n; i++){
         cin >> arr[i];
     }
 
@@ -20,7 +20,7 @@ int main(){
     int divider;
     int numberOfArray;
 
-    for (int i = 0; i < sizeof(arr); i++){
+    for (int i = 0; i < n; i++){
         divider = 2;
         numberOfArray = arr[i];
 
@@ -39,17 +39,17 @@ int main(){
 
     if (arePrime)
     {
-        cout << "There is at least one prime number!";
+        cout << "There is at least one prime number!" << endl;
     }
     else {
-        cout << "There is no prime number in the array!";
+        cout << "There is no prime number in the array!" << endl;
     }
 
 
     //b) Sa se verifice daca exista cel putin 3 elemente consecutive cu aceeasi paritate
 
     int threeTimes = 0;
-    for (int i = 0; i < sizeof(arr); i++){
+    for (int i = 0; i < n; i++){
         numberOfArray = arr[i];
 
         if (numberOfArray % 2 == 0)
@@ -64,34 +64,36 @@ int main(){
 
     if (threeTimes == 3)
     {
-        cout << "There are at least 3 numbers with the same parity";
+        cout << "There are at least 3 numbers with the same parity" << endl;
     }
     else{
         threeTimes = 0;
-        for (int i = 0; i < sizeof(arr); i++){
-        numberOfArray = arr[i];
+        for (int i = 0; i < n; i++){
+            numberOfArray = arr[i];
 
-        if (numberOfArray % 2 == 1)
-        {
-            threeTimes++;
+            if (numberOfArray % 2 == 1)
+            {
+                threeTimes++;
+            }
+            else
+            {
+                threeTimes = 0;
+            }
         }
-        else
+        if (threeTimes >= 3)
         {
-            threeTimes = 0;
+            cout << "There are at least 3 numbers with the same parity" << endl;
+        } else {
+            cout << "There aren't at least 3 numbers with the same parity" << endl;
         }
     }
-        if (threeTimes == 3)
-        {
-            cout << "There are at least 3 numbers with the same parity";
-        } 
-    }
-    
+
 
     //c) Sa se verifice daca elementele sirului sunt ordonate crescator
 
     bool areGrowing = true;
-    
-    for (int i = 1; i < sizeof(arr); i++){
+
+    for (int i = 1; i < n; i++){
         if (arr[i] <= arr[i-1])
         {
             areGrowing = false;
@@ -100,10 +102,10 @@ int main(){
 
     if (areGrowing)
     {
-        cout << "The numbers are growing";
+        cout << "The numbers are growing" << endl;
     }
     else{
-        cout << "The numbers aren't growing";
+        cout << "The numbers aren't growing" << endl;
     }
 
 
@@ -113,43 +115,43 @@ int main(){
     bool firstTime = true;
     int prevOdd;
 
-    for (int i = 0; i < sizeof(arr); i++)
+    for (int i = 0; i < n; i++)
     {
         if (firstTime){
-            for (int j = 0; j < sizeof(arr); i++){
+            for (int j = 0; j < n; i++){
                 numberOfArray = arr[j];
                 if (numberOfArray % 2 == 0)
                 {
-                    prevOdd = numberOfArray;
                     j = sizeof(arr);
                 }
             }
+            firstTime = !firstTime;
         }
-        
+
         if (!firstTime){
             numberOfArray = arr[i];
             if (numberOfArray % 2 == 0)
             {
                 if (numberOfArray <= prevOdd)
                 {
-                areGrowing = false;
-                i = sizeof(arr);
+                    areGrowing = false;
+                    i = sizeof(arr);
                 }
                 else{
                     prevOdd = numberOfArray;
                 }
-            }    
+            }
         }
     }
 
     if (areGrowing)
     {
-        cout << "The even number are growing";
+        cout << "The even number are growing" << endl;
     }
     else {
-        cout << "The even numbers are not growing!";
+        cout << "The even numbers are not growing!" << endl;
     }
-    
-    
-    
+
+
+
 }
