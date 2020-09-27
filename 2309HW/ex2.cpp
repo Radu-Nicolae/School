@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 int main() {
@@ -17,7 +18,6 @@ int main() {
     int firstNumberCopy;
     int secondNumber;
     int secondNumberCopy;
-    int product = 1;
     bool firstTime = true;
 
     for (int i = 0; i < arraySize; ++i) {
@@ -27,37 +27,31 @@ int main() {
     for (int i = 0; i < arraySize; ++i) {
         if (firstTime) {
             firstNumber = array[i];
+            secondNumber = array[i + 1];
             firstTime = false;
         } else {
-            firstNumber = biggestCommonDivisor;
+            firstNumber = smallestCommonMultiple;
+            secondNumber = array[i + 1];
         }
-        if (i == (arraySize - 1)){
-            break;
-        }
-        secondNumber = array[i + 1];
 
         firstNumberCopy = firstNumber;
         secondNumberCopy = secondNumber;
 
-        while (firstNumber != secondNumber){
-            if (firstNumber > secondNumber){
-                firstNumber = firstNumber - secondNumber;
+        while (firstNumberCopy != secondNumberCopy) {
+            if (firstNumberCopy > secondNumberCopy) {
+                firstNumberCopy -= secondNumberCopy;
             } else {
-                secondNumber = secondNumber - firstNumber;
+                secondNumberCopy -= firstNumberCopy;
             }
         }
 
-        biggestCommonDivisor = firstNumber;
+        biggestCommonDivisor = firstNumberCopy;
+
+        smallestCommonMultiple = firstNumber * secondNumber / biggestCommonDivisor;
+
 
     }
-
-    for (int i = 0; i < arraySize; ++i) {
-        product *= array[i];
-    }
-
-    smallestCommonMultiple = product / biggestCommonDivisor;
 
     cout << "The smallest common multiple is: " << smallestCommonMultiple;
 
-    //ummm... .?
 }
