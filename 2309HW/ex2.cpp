@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
     //Se citeste n si apoi se citesc n numere.
-    //Sa se afle cel mai mare divizor comun al numerelor
+    //Sa se afle cel mai mic multipu comun al numerelor
 
     int n;
     cout << "Enter n: ";
@@ -25,7 +25,7 @@ int main() {
     }
 
     for (int i = 0; i < arraySize; ++i) {
-        if (firstTime) {
+        if (firstTime){
             firstNumber = array[i];
             secondNumber = array[i + 1];
             firstTime = false;
@@ -37,8 +37,8 @@ int main() {
         firstNumberCopy = firstNumber;
         secondNumberCopy = secondNumber;
 
-        while (firstNumberCopy != secondNumberCopy) {
-            if (firstNumberCopy > secondNumberCopy) {
+        while (firstNumberCopy != secondNumberCopy){
+            if (firstNumberCopy > secondNumberCopy){
                 firstNumberCopy -= secondNumberCopy;
             } else {
                 secondNumberCopy -= firstNumberCopy;
